@@ -3092,6 +3092,7 @@ void vmx_set_cr0(struct kvm_vcpu *vcpu, unsigned long cr0)
 	unsigned long hw_cr0, old_cr0_pg;
 	u32 tmp;
 
+	// printk("vmx.c:vmx_set_cr0 \n");
 	old_cr0_pg = kvm_read_cr0_bits(vcpu, X86_CR0_PG);
 
 	hw_cr0 = (cr0 & ~KVM_VM_CR0_ALWAYS_OFF);
@@ -5298,6 +5299,8 @@ static int handle_task_switch(struct kvm_vcpu *vcpu)
 	u32 error_code = 0;
 	u16 tss_selector;
 	int reason, type, idt_v, idt_index;
+	
+	// printk("vmx.c:handle_task_switch \n");
 
 	idt_v = (vmx->idt_vectoring_info & VECTORING_INFO_VALID_MASK);
 	idt_index = (vmx->idt_vectoring_info & VECTORING_INFO_VECTOR_MASK);
